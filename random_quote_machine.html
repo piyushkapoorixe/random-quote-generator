@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Random Quote Machine</title>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<style type="text/css">
+	body {
+		background-color: gray;
+	}
+	#quote-box{
+		background-color: white;
+		margin-top: 50px;
+	}
+	#text{
+		height: 75px;
+		text-align: center;
+	}
+	#author{
+
+	}
+	.big-box{
+		border-radius: 5px;
+			}
+	.twitter-btn {
+		margin-left: 10px;
+	}
+	#new-quote{
+		margin-right: 10px;
+	}
+</style>
+<script type="text/javascript">
+	
+$(document).ready(function() {
+
+	$.getJSON('https://thesimpsonsquoteapi.glitch.me/quotes', function(data){
+console.log(data) //FOR JSON DATA
+var quote = "";
+var character = "";
+quote = data[0].quote;
+character = data[0].character;
+console.log(quote);
+console.log(character);
+$("#text").html(quote);
+$("#author").html(character);
+$("a").attr("href", "https://twitter.com/intent/tweet/" + encodeURIComponent(data.quote)); //Not Work because of invalid url for twitter
+});
+
+	$("#new-quote").on("click", function() {
+
+		$.getJSON('https://thesimpsonsquoteapi.glitch.me/quotes', function(data){
+//console.log(data) //FOR JSON DATA
+var quote = "";
+var character = "";
+quote = data[0].quote;
+character = data[0].character;
+console.log(quote);
+console.log(character);
+$("#text").html(quote);
+$("#author").html(character);
+$("a").attr("href", "https://twitter.com/intent/tweet/" + encodeURIComponent(data.quote));
+});
+		});
+	
+});
+</script>
+</head>
+<body>
+	<div id="wrapper">
+		<h1 style="text-align: center; color: white;">Random Quote Machine</h1>
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-6 big-box">
+				<div id="quote-box">
+					<div class="row">
+						<div class="col-md-12">
+							<div id="text"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-8"></div>
+						<div class="col-md-4">
+							<div id="author"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<!--<i class="fa fa-twitter" id="tweet-quote" aria-hidden="true"></i>-->
+							<a href="" target="_blank" id="tweet-quote"><button class="twitter-btn btn btn-default btn-md" title="Tweet this quote!"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></button></a>
+						</div>
+						<div class="col-md-4"></div>
+						<div class="col-md-4">
+							<button class="form-control button" id="new-quote">New quote</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3"></div>
+		</div>	
+	</div>
+</body>
+</html>
