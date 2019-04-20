@@ -3,75 +3,20 @@
 <head>
 	<title>Random Quote Machine</title>
 	<meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	  
+	<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="random_quote_machine.css">
+	<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-<style type="text/css">
-	body {
-		background-color: gray;
-	}
-	#quote-box{
-		background-color: white;
-		margin-top: 50px;
-	}
-	#text{
-		height: 75px;
-		text-align: center;
-	}
-	#author{
+	<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-	}
-	.big-box{
-		border-radius: 5px;
-			}
-	.twitter-btn {
-		margin-left: 10px;
-	}
-	#new-quote{
-		margin-right: 10px;
-	}
-</style>
-<script type="text/javascript">
-	
-$(document).ready(function() {
-
-	$.getJSON('https://thesimpsonsquoteapi.glitch.me/quotes', function(data){
-console.log(data) //FOR JSON DATA
-var quote = "";
-var character = "";
-quote = data[0].quote;
-character = data[0].character;
-console.log(quote);
-console.log(character);
-$("#text").html(quote);
-$("#author").html(character);
-$("a").attr("href", "https://twitter.com/intent/tweet/" + encodeURIComponent(data.quote)); //Not Work because of invalid url for twitter
-});
-
-	$("#new-quote").on("click", function() {
-
-		$.getJSON('https://thesimpsonsquoteapi.glitch.me/quotes', function(data){
-//console.log(data) //FOR JSON DATA
-var quote = "";
-var character = "";
-quote = data[0].quote;
-character = data[0].character;
-console.log(quote);
-console.log(character);
-$("#text").html(quote);
-$("#author").html(character);
-$("a").attr("href", "https://twitter.com/intent/tweet/" + encodeURIComponent(data.quote));
-});
-		});
-	
-});
-</script>
+	<!-- Including JS File -->
+		<script type = "text/javascript" src = "random_quote_machine.js" ></script>
 </head>
 <body>
 	<div id="wrapper">

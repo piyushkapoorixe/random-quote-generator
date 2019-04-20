@@ -1,0 +1,23 @@
+body {
+    background-color: gray;
+}
+#quote-box{
+    background-color: white;
+    margin-top: 50px;
+}
+#text{
+    height: 75px;
+    text-align: center;
+}
+#author{
+
+}
+.big-box{
+    border-radius: 5px;
+        }
+.twitter-btn {
+    margin-left: 10px;
+}
+#new-quote{
+    margin-right: 10px;
+}
